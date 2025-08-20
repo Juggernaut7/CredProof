@@ -1,18 +1,18 @@
-// src/pages/Signup.jsx
+// src/pages/Login.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import AuthForm from '../components/AuthForm';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
-export default function Signup() {
+export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleSignup = ({ email, password }) => {
-    // Simulated signup — replace with backend call
-    const newUser = { email, firstName: email.split('@')[0] };
-    login(newUser);
+  const handleLogin = ({ email, password }) => {
+    // Simulated auth — replace with backend call
+    const fakeUser = { email, firstName: email.split('@')[0] };
+    login(fakeUser);
     navigate('/dashboard');
   };
 
@@ -23,7 +23,7 @@ export default function Signup() {
       transition={{ duration: 0.8 }}
       className="relative"
     >
-      <AuthForm onSubmit={handleSignup} isLogin={false} />
+      <AuthForm onSubmit={handleLogin} isLogin />
     </motion.div>
   );
 }
